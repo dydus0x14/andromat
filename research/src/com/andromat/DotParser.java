@@ -4,6 +4,8 @@ import com.andromat.model.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -17,7 +19,9 @@ public class DotParser {
         Graph g = new Graph();
 
 
-        parseFirstLine(br.readLine(), g);
+        String name = parseFirstLine(br.readLine());
+        g.setName(name);
+
         String line;
         while ((line = br.readLine()) != null)   {
             if (!parseBody(line, g) && !parseLastLine(line)) {
@@ -30,14 +34,20 @@ public class DotParser {
         return g;
     }
 
-    private static boolean parseFirstLine(String line, Graph g) {
-
-        return true;
+    private static String parseFirstLine(String line) {
+        Pattern pattern = Pattern.compile(Pattern.quote("graph ") + "(.*?)" + Pattern.quote(" {"));
+        Matcher matcher = pattern.matcher(line);
+        return matcher.find() ? matcher.group(1) : null;
     }
 
     private static boolean parseBody(String line, Graph g)  {
-
-        return true;
+        Pattern pattern = Pattern.compile("(.*?)" + Pattern.quote("--") + "(.*?)");
+        Matcher matcher = pattern.matcher(line);
+        boolean result = false;
+        while(matcher.find()) {
+            result = true;
+        }
+        return result;
     }
 
     private static boolean parseLastLine(String line)  {

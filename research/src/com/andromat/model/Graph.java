@@ -42,4 +42,15 @@ public class Graph {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("graph ").append(name).append(" {\n");
+        for (Edge edge : edges) {
+            sb.append(edge.toString()).append("\n");
+        }
+        sb.append("}\n");
+        return sb.toString();
+    }
 }

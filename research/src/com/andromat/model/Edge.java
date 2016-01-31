@@ -35,4 +35,9 @@ public class Edge {
 
         return result;
     }
+
+    @Override
+    public String toString() {
+        return from.name + " -> " + to.name + ";";
+    }
 }
