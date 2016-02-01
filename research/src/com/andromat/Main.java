@@ -1,6 +1,7 @@
 package com.andromat;
 
 import com.andromat.model.Graph;
+import com.andromat.parser.DotParser;
 
 import java.io.*;
 

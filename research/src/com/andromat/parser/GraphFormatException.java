@@ -1,4 +1,4 @@
-package com.andromat;
+package com.andromat.parser;
 
 /**
  * Created by dydus on 31/01/2016.

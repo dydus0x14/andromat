@@ -21,10 +21,22 @@ public class Graph {
 
     public void addEdge(Edge edge) {
         edges.add(edge);
+        nodes.add(edge.from);
+        nodes.add(edge.to);
+    }
+
+    public void addEdges(Set<Edge> edges) {
+        for (Edge edge : edges) {
+            addEdge(edge);
+        }
     }
 
     public void addNode(Node node) {
         nodes.add(node);
+    }
+
+    public void addNodes(Set<Node> nodes) {
+        nodes.addAll(nodes);
     }
 
     public Set<Edge> getEdges() {
